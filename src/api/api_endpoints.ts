@@ -41,5 +41,3 @@ class TmdbAPIEndpoints {
 }
 export const Apiendpoints = new TmdbAPIEndpoints();
 
-
-// https://api.themoviedb.org/3/discover/all?api_key=956f1e8764d7cf1dd38870c6e8d651ce&with_watch_monetization_types=free&watch_region=IN

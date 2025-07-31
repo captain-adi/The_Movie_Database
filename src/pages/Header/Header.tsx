@@ -3,7 +3,7 @@ import { Plus, Search } from "lucide-react";
 const Header = () => {
   return (
       <div className="bg-[#032541] ">
-    <header className=" text-white flex items-center justify-between px-15 py-5 shadow container mx-auto">
+    <header className=" text-white flex items-center justify-between  py-5 shadow container mx-auto w-[1300px] px-10">
         {/* Left side: Logo + Nav */}
         <div className="flex  items-center space-x-6">
           {/* TMDB Logo */}
