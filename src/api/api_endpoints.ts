@@ -1,6 +1,8 @@
 import axios from "axios";
 import { API_Config } from "./apiconfig";
 import type { ITrendingResponse } from "@/types/tredingtypes";
+import type { IDetailType } from "@/types/detailType";
+import type { ICastAndCrew } from "@/types/castAndCrew";
 
 class TmdbAPIEndpoints {
   private create_URL(endpoint: string, params?: Record<string, string>) {
@@ -34,8 +36,13 @@ class TmdbAPIEndpoints {
     return this.fetchData(url);
   }
 
-  async getDetails(category: string, id: string) {
+  async getDetails(category: string, id: string): Promise<IDetailType> {
     const url = this.create_URL(`/${category}/${id}`);
+    return this.fetchData(url);
+  }
+
+  async getCastAndCrew(category: string, id: string) : Promise<ICastAndCrew> {
+    const url = this.create_URL(`/${category}/${id}/credits`);
     return this.fetchData(url);
   }
 }

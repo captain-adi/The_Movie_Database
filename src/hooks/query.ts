@@ -22,15 +22,27 @@ export function useGetFreeWatch({ category }: { category?: string }) {
   });
 }
 
-export function useGetDetails({
-  category,
-  id,
-}: {
-  category: string;
-  id: string;
-}) {
+export function useGetDetails(category?: string, id?: string) {
   return useQuery({
     queryKey: ["details", category, id],
-    queryFn: () => Apiendpoints.getDetails(category, id),
+    queryFn: () => { 
+      if (!category || !id) {
+        throw new Error("Category and ID are required for details query");
+      }
+      return Apiendpoints.getDetails(category, id);
+    },
+  });
+}
+
+
+export function useGetCastAndCrew(category?: string, id?: string) {
+  return useQuery({
+    queryKey: ["castAndCrew", category, id],
+    queryFn: () => {
+      if (!category || !id) {
+        throw new Error("Category and ID are required for cast and crew query");
+      }
+      return Apiendpoints.getCastAndCrew(category, id);
+    },
   });
 }

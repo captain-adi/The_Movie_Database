@@ -1,5 +1,6 @@
 import type { ITredingTypes } from "@/types/tredingtypes";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 interface IResult{
  results: ITredingTypes[];
  title: string;
@@ -11,6 +12,8 @@ interface IResult{
 }
 
 const ScrollCard = ({ results, onOptionChange, title, options }: IResult) => {
+
+  const navigate = useNavigate();
   return (
     <div className="relative">
       {/* Title and Tabs */}
@@ -34,7 +37,7 @@ const ScrollCard = ({ results, onOptionChange, title, options }: IResult) => {
         <div className="relative overflow-x-auto   ml-10 py-5">
           <div className="flex gap-5 pr-8">
             {results.map((movie, index) => (
-              <div key={index} className="relative w-[150px]  shrink-0">
+              <div key={index} className="relative w-[150px] cursor-pointer  shrink-0" onClick={()=> navigate(`/${movie.media_type}/${movie.id}`)}>
                 {/* Card */}
                 <div className=" rounded-xl shadow-md overflow-hidden pb-2">
                   <img
