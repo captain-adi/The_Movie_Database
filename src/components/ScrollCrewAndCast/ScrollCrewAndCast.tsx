@@ -14,7 +14,7 @@ function ScrollCrewAndCast({ results, title }: IScrollCrewAndCast) {
         <div>
               <h2 className="text-2xl text-black mr-5">{title}</h2>
         </div>
-       <div className="relative overflow-x-auto   ml-10 py-5">
+       <div className="relative overflow-x-auto   py-5">
                 <div className="flex gap-5 pr-8">
                   {results.slice(0,10).map((cast, index) => (
                     <div key={index} className="relative w-[150px] cursor-pointer  shrink-0" onClick={()=> navigate(`/${cast.id}/${cast.id}`)}>

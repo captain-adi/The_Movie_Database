@@ -46,3 +46,28 @@ export function useGetCastAndCrew(category?: string, id?: string) {
     },
   });
 }
+
+export function useGetKeywords(category?: string, id?: string) {
+  return useQuery({
+    queryKey: ["keywords", category, id],
+    queryFn: () => {
+      if (!category || !id) {
+        throw new Error("Category and ID are required for keywords query");
+      }
+      return Apiendpoints.getKeywords(category, id);
+    },
+  });
+}
+
+
+export function useGetReviews(category?: string, id?: string) { 
+  return useQuery({
+    queryKey: ["reviews", category, id],
+    queryFn: () => {
+      if (!category || !id) {
+        throw new Error("Category and ID are required for reviews query");
+      }
+      return Apiendpoints.getReviews(category, id);
+    },
+  });
+}

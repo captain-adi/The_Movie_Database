@@ -3,6 +3,7 @@ import { API_Config } from "./apiconfig";
 import type { ITrendingResponse } from "@/types/tredingtypes";
 import type { IDetailType } from "@/types/detailType";
 import type { ICastAndCrew } from "@/types/castAndCrew";
+import type { IKeywordsResponse } from "@/types/keywordtype";
 
 class TmdbAPIEndpoints {
   private create_URL(endpoint: string, params?: Record<string, string>) {
@@ -45,6 +46,18 @@ class TmdbAPIEndpoints {
     const url = this.create_URL(`/${category}/${id}/credits`);
     return this.fetchData(url);
   }
+
+ async getKeywords(category: string, id: string) : Promise<IKeywordsResponse> {
+    const url = this.create_URL(`/${category}/${id}/keywords`);
+    return this.fetchData(url);
+  }
+
+
+  async getReviews(category: string, id: string) {
+    const url = this.create_URL(`/${category}/${id}/reviews`);
+    return this.fetchData(url);
+  }
+
 }
 export const Apiendpoints = new TmdbAPIEndpoints();
 
