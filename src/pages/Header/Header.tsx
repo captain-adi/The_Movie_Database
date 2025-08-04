@@ -8,8 +8,7 @@ const Header = () => {
         <div className="flex  items-center space-x-6">
           {/* TMDB Logo */}
           <div className="flex items-center space-x-1">
-            <span className="text-[#90cea1] font-bold text-lg">TMDB</span>
-            <span className="w-5 h-5 bg-[#01b4e4] rounded-md"></span>
+           <img src="/headerLogo.svg" alt="TMDB Logo" className="h-4" />
           </div>
 
           {/* Navigation Links */}
